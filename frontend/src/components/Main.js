@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from './Card';
+import Card from '../../microfrontend/card-microfrontend/src/components/Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import Profile from '../../microfrontend/profile-microfrontend/src/components/Profile';
 
 function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -10,12 +11,7 @@ function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onC
   return (
     <main className="content">
       <section className="profile page__section">
-        <div className="profile__image" onClick={onEditAvatar} style={imageStyle}></div>
-        <div className="profile__info">
-          <h1 className="profile__title">{currentUser.name}</h1>
-          <button className="profile__edit-button" type="button" onClick={onEditProfile}></button>
-          <p className="profile__description">{currentUser.about}</p>
-        </div>
+        <Profile/>
         <button className="profile__add-button" type="button" onClick={onAddPlace}></button>
       </section>
       <section className="places page__section">
